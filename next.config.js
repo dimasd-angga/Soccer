@@ -1,6 +1,19 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  webpack: (config) => {
+    // Silence optional-peer warnings from wagmi / walletconnect / metamask
+    // SDKs. These modules are only used in non-browser runtimes (React Native
+    // and pino-pretty in dev), but webpack still warns when it can't find
+    // them. Aliasing them to `false` resolves them to an empty module.
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "pino-pretty": false,
+      "@react-native-async-storage/async-storage": false,
+    };
+    return config;
+  },
   images: {
     remotePatterns: [
       {

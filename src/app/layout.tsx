@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/contexts/CartContext";
+import { Web3Provider } from "@/contexts/Web3Provider";
 import Header from "@/components/Header";
 import Image from "next/image";
 
@@ -28,12 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CartProvider>
-          <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-            <Header />
-            <main className="flex-1">{children}</main>
-          </div>
-        </CartProvider>
+        <Web3Provider>
+          <CartProvider>
+            <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+              <Header />
+              <main className="flex-1">{children}</main>
+            </div>
+          </CartProvider>
+        </Web3Provider>
       </body>
     </html>
   );
