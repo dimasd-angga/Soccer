@@ -1,0 +1,15 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feat/wallet-integration",
+    "main"
+  ],
+  "parent": {
+    "feat/wallet-integration": "main",
+    "main": null
+  },
+  "order": [
+    "main",
+    "feat/wallet-integration"
+  ]
+}

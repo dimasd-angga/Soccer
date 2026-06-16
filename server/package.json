@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "./server.js",
   "scripts": {
-    "dev:server": "nodemon server.js",
-    "dev:client": "vite client",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation concurrently \"npm run dev:server\" \"npm run dev:client\""
+    "dev:server": "node init && nodemon server.js",
+    "dev:client": "node init && vite client",
+    "start": "node init && cross-env NODE_OPTIONS=--no-deprecation concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
   "private": true,
   "dependencies": {
