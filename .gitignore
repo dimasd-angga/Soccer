@@ -60,6 +60,12 @@ logs/
 .idea/
 *.swp
 *.swo
+.claude/
+
+# private notes (not part of the deliverable)
+/docs/
+CLAUDE.md
+**/CLAUDE.md
 
 # OS generated files
 Thumbs.db
